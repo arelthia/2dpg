@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
-    id          = "com.pintop.2dwebsolutions "
+    id          = "com.pintop.ddwebsolutions "
     versionCode = "1" 
     version     = "1.0.0" >
 	<name>2D Web Solutions</name>
@@ -11,9 +11,9 @@
     <author href="https://pintopsolutions.com" email="support@pintopsolutions.com ">
              Pintop Solutions 
     </author>
-    <platform name="ios"/>
+    <!-- <platform name="ios"/> -->
     <platform name="android"/>
-    <platform name="winphone"/>
+    <!-- <platform name="winphone"/> -->
 
     <preference name="orientation" value="portrait" />
 
