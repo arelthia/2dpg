@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.pintop.2dwebsolutions "
+    versionCode = "1" 
+    version     = "1.0.0" >
+	<name>2D Web Solutions</name>
+    <description>
+            This application is for designers and developers. We are Arelthia Phillips, founder of Pintop Solutions, LLC and Kerry Carron, founder of Ultimate Solution, LLC. Together we are 2D Web Solutions - Aspects of Design And Development. You ask questions, we find solutions. 
+    </description>
+    <author href="https://pintopsolutions.com" email="support@pintopsolutions.com ">
+             Pintop Solutions 
+    </author>
+    <platform name="ios"/>
+    <platform name="android"/>
+    <platform name="winphone"/>
+
+    <preference name="orientation" value="portrait" />
+
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="false" />
+
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="disallowOverscroll" value="true" />
+
+    <!-- ios specific -->
+    <preference name="target-device" value="universal"/>
+    <preference name="deployment-target" value="7.0"/>
+    <preference name="exit-on-suspend" value="false"/>
+    <preference name="detect-data-types" value="true"/>
+    <preference name="prerendered-icon" value="false"/>
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="ios-statusbarstyle" value="default"/>
+    <preference name="StatusBarStyle" value="default" />
+
+
+    <!-- andriod specific -->
+    <preference name="android-minSdkVersion" value="21" />
+    <preference name="android-installLocation" value="auto" />
+
+    <platform name="ios">
+        <icon src="res/icon/ios/Icon-App-57x57@1x.png" width="57" height="57"/>
+        <icon src="res/icon/ios/Icon-App-57x57@2x.png" width="114" height="114"/>
+        <icon src="res/icon/ios/Icon-App-40.png" width="40" height="40"/>
+        <icon src="res/icon/ios/Icon-App-40@2x.png" width="80" height="80"/>
+        <icon src="res/icon/ios/Icon-App-50.png" width="50" height="50"/>
+        <icon src="res/icon/ios/Icon-App-50@2x.png" width="100" height="100"/>
+        <icon src="res/icon/ios/Icon-App-60.png" width="60" height="60"/>
+        <icon src="res/icon/ios/Icon-App-60@2x.png" width="120" height="120"/>
+        <icon src="res/icon/ios/Icon-App-60@3x.png" width="180" height="180"/>
+        <icon src="res/icon/ios/Icon-App-72.png" width="72" height="72"/>
+        <icon src="res/icon/ios/Icon-App-72@2x.png" width="144" height="144"/>
+        <icon src="res/icon/ios/Icon-App-76.png" width="76" height="76"/>
+        <icon src="res/icon/ios/Icon-App-76@2x.png" width="152" height="152"/>
+        <icon src="res/icon/ios/Icon-App-29x29@1x.png" width="29" height="29"/>
+        <icon src="res/icon/ios/Icon-App-29x29@2x.png" width="58" height="58"/>
+        <icon src="res/icon/ios/Icon-App-29x29@3x.png" width="87" height="87"/>
+    </platform>
+
+    <platform name="android">
+        <icon src="res/icon/android/mipmap-ldpi/ic_launcher.png" qualifier="ldpi"/>
+        <icon src="res/icon/android/mipmap-mdpi/ic_launcher.png" qualifier="mdpi"/>
+        <icon src="res/icon/android/mipmap-hdpi/ic_launcher.png" qualifier="hdpi"/>
+        <icon src="res/icon/android/mipmap-xhdpi/ic_launcher.png" qualifier="xhdpi"/>
+        <icon src="res/icon/android/mipmap-xxhdpi/ic_launcher.png" qualifier="xxhdpi"/>
+        <icon src="res/icon/android/mipmap-xxxhdpi/ic_launcher.png" qualifier="xxxhdpi"/>
+    </platform>
+
+    <platform name="ios">
+        <splash src="res/screens/ios/screen-iphone-portrait.png" width="320" height="480"/>
+		<splash src="res/screens/ios/screen-iphone-portrait-2x.png" width="640" height="960"/>
+		<splash src="res/screens/ios/screen-iphone-portrait-568h-2x.png" width="640" height="1136"/>
+		<splash src="res/screens/ios/screen-iphone-portrait-667h.png" width="750" height="1334"/>
+		<splash src="res/screens/ios/screen-iphone-portrait-736h.png" width="1242" height="2208"/>
+		<splash src="res/screens/ios/screen-ipad-portrait.png" width="768" height="1024"/>
+		<splash src="res/screens/ios/screen-ipad-portrait-2x.png" width="1536" height="2048"/>
+      </platform>
+      
+      <platform name="android">
+       	<splash qualifier="ldpi" src="res/screens/android/screen-ldpi-portrait.png"/>
+		<splash qualifier="mdpi" src="res/screens/android/screen-mdpi-portrait.png"/>
+		<splash qualifier="hdpi" src="res/screens/android/screen-hdpi-portrait.png"/>
+		<splash qualifier="xhdpi" src="res/screens/android/screen-xhdpi-portrait.png"/>
+      </platform>
+
+    <preference name="permissions" value="none"/>
+	<plugin name="cordova-plugin-device" spec="~1.1.1" source="npm"/>
+	<plugin name="cordova-plugin-dialogs" spec="~1.2.0" source="npm"/>
+	<plugin name="cordova-plugin-geolocation" spec="~2.1.0" source="npm"/>
+	<plugin name="cordova-plugin-inappbrowser" spec="~1.3.0" source="npm"/>
+	<plugin name="cordova-plugin-network-information" spec="1.2.0" source="npm"/>
+	<plugin name="cordova-plugin-splashscreen" spec="~3.2.1" source="npm"/>
+	<plugin name="cordova-plugin-statusbar" spec="~2.1.2" source="npm"/>
+	<plugin name="cordova-plugin-whitelist" spec="~1.2.1" source="npm"/>
+
+      
+    <!-- Wildcards are allowed for the protocol, as a prefix
+     to the host, or as a suffix to the path -->
+	<allow-intent href="*://*.2dwebsolutions.com/*" />
+
+    <allow-intent href="mailto:*"/>
+    <platform name="android">
+       <allow-intent href="market:*"/>
+    </platform>
+    <platform name="ios">
+       <allow-intent href="itms:*"/>
+       <allow-intent href="itms-apps:*"/>
+    </platform>
+
+</widget>

@@ -1,0 +1,55 @@
+:root{
+  --base: #333;
+  --spacing: 10px;
+  --size: 16px;
+}
+
+.wrap {
+    white-space: normal !important;
+}
+
+
+.post-btn {
+    font-size: var(--size);
+    display: block;
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+  
+    white-space: normal !important;
+    cursor: pointer;
+    user-select: none;
+    margin: 0.5em 0px;
+    padding: 0.7em 1em;
+    overflow: hidden;
+    text-decoration: none !important;
+}
+
+a h2 {
+    /*color: rgb(51,51,51);*/
+    color: var(--base);
+}
+
+
+.ui-shadow {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
+    background-color: #fec602;
+    border-color: #ddd;
+    color: #38383a;
+    
+}
+
+
+#banner{
+    max-width: 65%;
+   padding: 20px;
+}
+
+.ui-header .ui-btn-right{
+    margin-top: 20px;
+}
