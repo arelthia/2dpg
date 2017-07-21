@@ -9,7 +9,7 @@
   var fimg = "";
 
     jQuery.ajax({
-    url: ajaxUrl + '/podcast/?per_page=4&_embed=true',
+    url: ajaxUrl + '/podcast/?per_page=6&_embed=true',
     method: 'GET',
     success: function(res) {
      
@@ -65,7 +65,7 @@
       jQuery("ul").html("");
       jQuery('button.back').toggle();
       var epcontent = '<img src="' + fimg + '" /><h2>' + res.title.rendered + '</h2>';
-      jQuery(".full").append(epcontent+'<div class="player"><audio controls><source src="https://listen.2dwebsolutions.com/2dwebsolutions-e'+ res.eposide +'.mp3" type="audio/mpeg"></audio><p>' + res.intro_paragraph + '</p></div>').fade();
+      jQuery(".full").append(epcontent+'<div class="player"><audio controls><source src="https://listen.2dwebsolutions.com/2dwebsolutions-e'+ res.eposide +'.mp3" type="audio/mpeg"></audio><p>' + res.intro_paragraph + '</p></div>');
     }//end success
     });//end ajax call to show one
     
