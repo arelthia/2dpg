@@ -3,7 +3,7 @@
   "use strict";
   var ajaxUrl = 'https://2dwebsolutions.com/wp-json/wp/v2';
   var podcasts = {};
-    var media = {};
+  var media = {};
   
   var content = '';
   var fimg = "";
@@ -21,8 +21,8 @@
        }//end success 
     });//end ajax
 
-  // When one of the podcast blockes cliiked
-     jQuery(document).on( "click swipeleft swiperight", ".one-half" ,  function(e) {
+  // When one of the podcast blocks cliiked
+     jQuery(document).on( "click swipeleft swiperight", "#podcasts .one-half" ,  function(e) {
               
 
         var pid = this.dataset.id;
