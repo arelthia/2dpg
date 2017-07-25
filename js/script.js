@@ -1,74 +1,111 @@
 /*jshint browser:true */ /*global $ */
 (function() {
   "use strict";
-  var ajaxUrl = 'https://2dwebsolutions.com/wp-json/wp/v2';
-  var podcasts = {};
-  var media = {};
+  let ajaxUrl = 'https://2dwebsolutions.com/wp-json/wp/v2';
+  let podcasts = {};
+  let quotes ={};
+  //let media = {};
   
-  var content = '';
-  var fimg = "";
-
-    jQuery.ajax({
+//get  podcasts
+  jQuery.ajax({
     url: ajaxUrl + '/podcast/?per_page=6&_embed=true',
     method: 'GET',
     success: function(res) {
      
       podcasts = res;
-      showAllContent(podcasts);
-    
+      showAllPodcasts(podcasts);
      
-      
-       }//end success 
-    });//end ajax
+    }//end success 
+  });//end ajax
 
-  // When one of the podcast blocks cliiked
+//get image quotes
+jQuery.ajax({
+    url: ajaxUrl + '/image_quote/?per_page=6&_embed=true',
+    method: 'GET',
+    success: function(res) {
+     
+      quotes = res;
+      showQuotes(res);
+     
+    }//end success 
+  });//end ajax
+
+  // When one of the podcast blocks clicked
      jQuery(document).on( "click swipeleft swiperight", "#podcasts .one-half" ,  function(e) {
               
-
-        var pid = this.dataset.id;
-        jQuery("ul").html("Loading ... ");
-        showOne(pid);
+        let pid = this.dataset.id;
+        jQuery("#podcasts ul").html("").html("Loading ... ");
+        showPodcast(pid);
       });  //end on one-half click
-      var fullpage = jQuery(".full");
+      let fullpage = jQuery("#podcasts .full");
       jQuery( document ).on( "swipeleft swiperight", fullpage, function() {
-        jQuery(".full").html("")
-        showAllContent(podcasts);
-        jQuery(this).toggle();
+        jQuery("#podcasts .full").html("")
+        showAllPodcasts(podcasts);
+        //jQuery('.back').toggle();
       }); //end on swipelift
 
       //when backbutton clicked
       jQuery(document).on( "click", "button.back" ,  function(e) {
-        jQuery(".full").html("")
-        jQuery('button.back').toggle();
-        showAllContent(podcasts);
+        jQuery("#podcasts .full").html("")
+        //jQuery(this).toggle();
+        //jQuery('.back').toggle();
+        showAllPodcasts(podcasts);
       });  //end on back button clicked
   
-  function showAllContent(res){ 
+  function showAllPodcasts(res){ 
+        let fimg='';
+        let   podcontent ='';
+        jQuery('button.back').hide();
+        jQuery('a.back').show();
+
         jQuery.each(res, function(key, value) {
          
-      var fimg = value._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url;
+          fimg = value._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url;
             //content = '<h2>' + value.title.rendered + '</h2>';
-            content = '<img src="' + fimg + '" data-pin-nopin="true" /><h2 class="episode-title wrap">' + value.title.rendered + '</h2>';
+          podcontent = '<img src="' + fimg + '" data-pin-nopin="true" /><h2 class="episode-title wrap">' + value.title.rendered + '</h2>';
         
-        jQuery("ul").append('<a href="#" class="post-btn"><li class="one-half " data-id="'+value.id+'" data-episode="'+value.eposide+'" data-transition="slide">' +content + '</li></a>');    
+          jQuery("#podcasts ul").append('<a href="#" class="post-btn"><li class="one-half " data-id="'+value.id+'" data-episode="'+value.eposide+'" data-transition="slide">' +podcontent + '</li></a>');    
         
       })
   }  
   
-  function showOne(pid){
+  function showPodcast(pid){
     
     jQuery.ajax({
     url: ajaxUrl + '/podcast/'+pid+'/?_embed=true',
     method: 'GET',
     success: function(res) {
-      var fimg = res._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url;
+      let fimg = res._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url;
       jQuery("ul").html("");
-      jQuery('button.back').toggle();
-      var epcontent = '<img src="' + fimg + '" /><h2>' + res.title.rendered + '</h2>';
-      jQuery(".full").append(epcontent+'<div class="player"><audio controls><source src="https://listen.2dwebsolutions.com/2dwebsolutions-e'+ res.eposide +'.mp3" type="audio/mpeg"></audio><p>' + res.intro_paragraph + '</p></div>');
+      jQuery('button.back').show();
+      jQuery('a.back').hide();
+      let epcontent = '<img src="' + fimg + '" /><h2>' + res.title.rendered + '</h2>';
+      jQuery("#podcasts .full").append(epcontent+'<div class="player"><audio controls><source src="https://listen.2dwebsolutions.com/2dwebsolutions-e'+ res.eposide +'.mp3" type="audio/mpeg"></audio><p>' + res.intro_paragraph + '</p></div>');
     }//end success
     });//end ajax call to show one
     
   }
+
+
+
+  function showQuotes(res){
+    let qimg = '';
+    let quotecontent = '';
+    jQuery.each(res, function(key, value) {
+         
+          qimg = value._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url;
+            //content = '<h2>' + value.title.rendered + '</h2>';
+          quotecontent = '<img src="' + qimg + '" data-pin-nopin="true" /><h2 class="episode-title wrap">' + value.title.rendered + '</h2>';
+        
+          //jQuery("#quolist").append('<a href="#" class="post-btn"><li class="" data-id="'+value.id+'"  data-transition="slide">' +quotecontent + '</li></a>');    
+          jQuery("#quolist").append('<li class="ui-li-has-thumb"><a href="#singlequote" class="quotes ui-btn ui-btn-icon-right ui-icon-carat-r" id="'+value.id+'"><img src="' + qimg + '" alt="' + value._embedded['wp:featuredmedia'][0].alt_text + '" data-pin-nopin="true"><h2>' + value.title.rendered + '</h2><p>' + value['ddws-quote'] + '</p></a></li>');
+      })
+  }
   
+
+
+
+
+
 })();
+
