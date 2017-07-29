@@ -118,19 +118,13 @@ let forminput = {
         "input_5":"/mobileap"
 };
 //console.log(forminput);
-//let data = {'input_values': forminput};
+let datar = {'input_values': forminput};
 
 //get  podcasts
 jQuery.ajax({
   url: formurl,
   method: 'POST',
-  data:  {
-      'input_values': forminput
-  },
-  success: function(res) {
-     console.log(res);
-         
-  }//end success 
+  data:  datar
  });//end ajax
 
 
