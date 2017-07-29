@@ -102,49 +102,38 @@ jQuery.ajax({
       })
   }
   
-
+//Convert all form names and ids with periods to underscores
 
   //gravityformsapi/forms/[Form ID]/submissions
-  jQuery(document).on('submit','#gform_questions',function(e){
-     // code
-    //e.preventDefault();
+  jQuery(document).on('click','#gform_submit_button_1',function(e){
+  
+    e.preventDefault();
     let formurl = 'https://230.pintophosting.com/gravityformsapi/forms/3/submissions';
     let forminput = {
-            "input_4.1": jQuery('#choice_1_4_1:checked').val(),
-            "input_1.3": jQuery('#input_1_1_3').val(),
-            "input_1.6": jQuery('#input_1_1_6').val(),
+            "input_4_1": jQuery('#choice_1_4_1:checked').val(),
+            "input_1_3": jQuery('#input_1_1_3').val(),
+            "input_1_6": jQuery('#input_1_1_6').val(),
             "input_2": jQuery('#input_1_2').val(),
             "input_3": jQuery('#input_1_3').val(),
             "input_5": jQuery('#input_3_5').val()
     };
     //console.log(forminput);
     let datar = {'input_values': forminput};
-console.log(datar);
+
     //get  podcasts
     jQuery.ajax({
       url: formurl,
-      method: 'POST',
-      data: JSON.stringify(datar),
-      success: function(res) {
-      console.log(res);
-        jQuery('#gform_questions').reset();
-        jQuery.mobile.navigate( "#firstpage" );
-     
-      }//end success 
-     });//end ajax
+      type: 'POST',
+      data: JSON.stringify(datar)
+    });
 
+   location.href = '#firstpage';
+   //jQuery('form')[0].reset();
 
+   
   });//end on form submit
+
 
 })();
 
-/*
-            "input_4.1": jQuery('#choice_1_4_1:checked').val(),
-            "input_1.3": jQuery('#input_1_1_3').val(),
-            "input_1.6": jQuery('#input_1_1_6').val(),
-            "input_2": jQuery('#input_1_2').val(),
-            "input_3": jQuery('#input_1_3').val(),
-            "input_5":"/mobileap"
-
-
-*/
+//TODO: Reset form after form submitted
