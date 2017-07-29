@@ -25,7 +25,7 @@ jQuery.ajax({
     success: function(res) {
      
       quotes = res;
-      showQuotes(res);
+     //showQuotes(res);
      
     }//end success 
   });//end ajax
@@ -104,8 +104,37 @@ jQuery.ajax({
   
 
 
+//gravityformsapi/forms/[Form ID]/submissions
+jQuery(document).on('submit','#gform_questions',function(e){
+   // code
+e.preventDefault();
+let formurl = 'https://230.pintophosting.com/gravityformsapi/forms/3/submissions';
+let forminput = {
+        "input_4.1": jQuery('#choice_1_4_1:checked').val(),
+        "input_1.3": jQuery('#input_1_1_3').val(),
+        "input_1.6": jQuery('#input_1_1_6').val(),
+        "input_2": jQuery('#input_1_2').val(),
+        "input_3":jQuery('#input_1_3').val(),
+        "input_5":"/mobileap"
+};
+console.log(forminput);
+let data = {
+      'input_values': forminput
+  };
+
+//get  podcasts
+jQuery.ajax({
+  url: formurl,
+  method: 'POST',
+  data: JSON.stringify(data),
+  success: function(res) {
+     console.log(res);
+         
+  }//end success 
+ });//end ajax
 
 
+});//end on form submit
 
 })();
 

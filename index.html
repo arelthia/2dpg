@@ -8,6 +8,7 @@
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>  
+  <script type="text/javascript" src="js/test.js"></script>  
   <link type="text/css" rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <script src="cordova.js"></script>
@@ -54,22 +55,15 @@
      
     </div>
     <!-- This is the quotes page -->
-    <div id="quotes" data-role="page">
-        <div data-role="header"> 
-        <h1></h1>
-            <a class="ui-btn-right ui-btn ui-icon-home ui-mini ui-corner-all ui-btn-icon-notext back" href="#firstpage" data-transition="slidefade"></a>
-        </div>
+    <div id="quotes" data-role="page" class="quote-page" data-dom-cache="ture" data-theme="b" data-prev="prevQuote" data-next="nextQuote" data-url="city">
+       
         <div class="ui-content" role="main">
-          <ul data-role="listview" id="quolist" class="ui-listview">
-
-
-
-
-          </ul>
+          <div id="image-quotes" class="quote ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="a">
+              <a href="#" data-rel="back" class="ui-btn ui-btn-right ui-btn-b ui-btn-icon-notext ui-icon-delete ui-corner-all">Close</a>
+              <p>Quote text here</p>
+          </div>
         </div>
-        <div data-role="footer" data-position="fixed">
-            <h2>Page Content Footer</h2>
-        </div>
+       
     </div>
     <!-- This is the quotes internal page -->
     <div id="singlequote" data-role="page">
@@ -93,7 +87,32 @@
         <div class="ui-content" role="main">
            
 <p>Contact here</p>
+        <form id="gform_questions" >               
+          <div>
+          <input name="input_4.1" type="checkbox" value="Yes, I would like to ask a question!" id="choice_1_4_1" tabindex="1">
+          <label for="choice_1_4_1" id="label_1_4_1">Yes, I would like to ask a question!</label>
+          </div>
+          <div>
+            <label for="input_1_1_3">First</label>
+            <input type="text" name="input_1.3" id="input_1_1_3" value="" aria-label="First name" tabindex="3" aria-required="true" aria-invalid="false">
+          </div>
+          <div>
+            <label for="input_1_1_6">Last</label>
+            <input type="text" name="input_1.6" id="input_1_1_6" value="" aria-label="Last name" tabindex="5" aria-required="true" aria-invalid="false">
+          </div>
+          <div>
+            <label class="gfield_label" for="input_1_2">Email</label>
+            <input name="input_2" id="input_1_2" type="text" value="" class="medium" tabindex="7">
+          </div>
+          <div>
+            <label class="gfield_label" for="input_1_3">Question</label>
+            <textarea name="input_3" id="input_1_3" class="textarea medium" tabindex="8" rows="10" cols="50"></textarea>
+          </div>
+          <div>
+              <input type="submit" id="gform_submit_button_1" class="gform_button button" value="Submit Question" tabindex="9" > 
+          </div>
 
+      </form>  
            
         </div>
         <div data-role="footer" data-position="fixed">
