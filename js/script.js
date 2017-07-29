@@ -108,23 +108,29 @@ jQuery.ajax({
   jQuery(document).on('submit','#gform_questions',function(e){
      // code
     //e.preventDefault();
-    let formurl = 'https://2dwebsolutions.com/gravityformsapi/forms/1/submissions';
+    let formurl = 'https://230.pintophosting.com/gravityformsapi/forms/3/submissions';
     let forminput = {
             "input_4.1": jQuery('#choice_1_4_1:checked').val(),
             "input_1.3": jQuery('#input_1_1_3').val(),
             "input_1.6": jQuery('#input_1_1_6').val(),
             "input_2": jQuery('#input_1_2').val(),
             "input_3": jQuery('#input_1_3').val(),
-            "input_5":"/mobileap"
+            "input_5": jQuery('#input_3_5').val()
     };
     //console.log(forminput);
     let datar = {'input_values': forminput};
-
+console.log(datar);
     //get  podcasts
     jQuery.ajax({
       url: formurl,
       method: 'POST',
-      data:  datar
+      data: JSON.stringify(datar),
+      success: function(res) {
+      console.log(res);
+        jQuery('#gform_questions').reset();
+        jQuery.mobile.navigate( "#firstpage" );
+     
+      }//end success 
      });//end ajax
 
 
@@ -132,3 +138,13 @@ jQuery.ajax({
 
 })();
 
+/*
+            "input_4.1": jQuery('#choice_1_4_1:checked').val(),
+            "input_1.3": jQuery('#input_1_1_3').val(),
+            "input_1.6": jQuery('#input_1_1_6').val(),
+            "input_2": jQuery('#input_1_2').val(),
+            "input_3": jQuery('#input_1_3').val(),
+            "input_5":"/mobileap"
+
+
+*/
