@@ -8,7 +8,6 @@
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>  
-  <script type="text/javascript" src="js/test.js"></script>  
   <link type="text/css" rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <script src="cordova.js"></script>
@@ -33,9 +32,7 @@
                 
             </div>
         </div>
-        <div data-role="footer" data-position="fixed">
-            <h2>Page Content Footer</h2>
-        </div>
+        
     </div>
     <div data-role="page" data-ajax="false" class="ui-page-theme-a ui-page-footer-fixed" id="podcasts">
       <div data-role="header" role="banner" class="ui-header ui-bar-inherit">
@@ -55,38 +52,35 @@
      
     </div>
     <!-- This is the quotes page -->
-    <div id="quotes" data-role="page" class="quote-page" data-dom-cache="ture" data-theme="b" data-prev="prevQuote" data-next="nextQuote" data-url="city">
-       
+    <div id="quotes" data-role="page" class="quote-page" data-dom-cache="true" data-theme="b" >
+       <div data-role="header">
+         <h1>Actionable Words</h1>
+            <a class="ui-btn-right ui-btn ui-icon-home ui-mini ui-corner-all ui-btn-icon-notext back" href="#firstpage" data-transition="slidefade"></a>
+        </div>
         <div class="ui-content" role="main">
-          <div id="image-quotes" class="quote ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="a">
-              <a href="#" data-rel="back" class="ui-btn ui-btn-right ui-btn-b ui-btn-icon-notext ui-icon-delete ui-corner-all">Close</a>
-              <p>Quote text here</p>
+          <div id="image-quotes" class="quote" data-theme="a">
+              
           </div>
         </div>
-       
+       <div data-role="footer" data-position="fixed">
+         <div data-role="controlgroup" data-type="horizontal" class="ui-button-left" data-inset="true">
+              <a href="#" id="leftButton" class="ui-btn  ui-btn-icon-right ui-btn-icon-notext ui-icon-carat-l"></a>
+              <a href="#" id="rightButton" class="ui-btn ui-btn-icon-right ui-btn-icon-notext ui-icon-carat-r"></a>
+          </div>
+        </div>  
     </div>
-    <!-- This is the quotes internal page -->
-    <div id="singlequote" data-role="page">
-        <div data-role="header"> 
-        <h1></h1>
-            <a class="ui-btn-right ui-btn ui-icon-back ui-mini ui-corner-all ui-btn-icon-notext back" href="#quotes" data-transition="slidefade"></a>
-        </div>
-        <div class="ui-content" role="main">
-         
-        </div>
-        <div data-role="footer" data-position="fixed">
-            <h2>Page Content Footer</h2>
-        </div>
-    </div>
+
+ 
+
     <!-- This is the contact page -->
     <div id="contact" data-role="page">
         <div data-role="header">
-         <h1>Page Content Header</h1>
+          <h1>Ask Question</h1>
             <a class="ui-btn-right ui-btn ui-icon-home ui-mini ui-corner-all ui-btn-icon-notext back" href="#firstpage" data-transition="slidefade"></a>
         </div>
         <div class="ui-content" role="main">
            
-<p>Contact here</p>
+<p>We would love to hear from you</p>
         <form id="gform_questions" >               
           <div>
           <input name="input_4_1" type="checkbox" value="Yes, I would like to ask a question!" id="choice_1_4_1" tabindex="1" >
@@ -118,9 +112,7 @@
       </form>  
            
         </div>
-        <div data-role="footer" data-position="fixed">
-            <h2>Page Content Footer</h2>
-        </div>
+
     </div>
     <!-- This is the about page -->
     <div id="about" data-role="page">

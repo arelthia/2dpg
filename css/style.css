@@ -95,3 +95,22 @@ a h2 {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
+
+
+
+#image-quotes img {
+  position: absolute;
+top: 10%;
+left: 0;
+  max-width: 100%;
+
+   margin: 0 auto;
+
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+ #image-quotes img {
+    left: 10%;
+  }
+}

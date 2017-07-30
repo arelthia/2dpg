@@ -4,6 +4,7 @@
   let ajaxUrl = 'https://2dwebsolutions.com/wp-json/wp/v2';
   let podcasts = {};
   let quotes ={};
+  let quoteImages = {};
   //let media = {};
   jQuery( document ).one( "pagecreate", "#podcasts", function(){
     //get  podcasts
@@ -83,27 +84,104 @@ jQuery( document ).one( "pageshow", "#podcasts", function(){
     
   }
 
-
+let current = '';
 
   function showQuotes(res){
-    let qimg = '';
-    let quotecontent = '';
+    //let qimg = '';
+    //let quotecontent = '';
     jQuery.each(res, function(key, value) {
          
-          qimg = value._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url;
+          //qimg = value._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url;
             //content = '<h2>' + value.title.rendered + '</h2>';
-          quotecontent = '<img src="' + qimg + '" data-pin-nopin="true" /><h2 class="episode-title wrap">' + value.title.rendered + '</h2>';
+          //quotecontent = '<img src="' + qimg + '" data-pin-nopin="true" /><h2 class="episode-title wrap">' + value.title.rendered + '</h2>';
         
           //jQuery("#quolist").append('<a href="#" class="post-btn"><li class="" data-id="'+value.id+'"  data-transition="slide">' +quotecontent + '</li></a>');    
           //jQuery("#quolist").append('<li class="ui-li-has-thumb"><a href="#singlequote" class="quotes ui-btn ui-btn-icon-right ui-icon-carat-r" id="'+value.id+'"><img src="' + qimg + '" alt="' + value._embedded['wp:featuredmedia'][0].alt_text + '" data-pin-nopin="true"><h2>' + value.title.rendered + '</h2><p>' + value['ddws-quote'] + '</p></a></li>');
      
-          jQuery("#image-quotes").append('<img src="' + qimg + '" alt="' + value._embedded['wp:featuredmedia'][0].alt_text + '" >');
+          jQuery("#image-quotes").append('<img class="single-quote"  data-transition="flip"  style="display:none" src="' + value._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '" alt="' + value._embedded['wp:featuredmedia'][0].alt_text + '" >');
      
 
       })
+    jQuery(".single-quote:first").show();
+     current = jQuery(".single-quote");
+     
   }
+
+jQuery( document ).on( "swipeleft", ".single-quote", function() {
+        
+          let nxt = jQuery(this).next();
+      
+     
+      if(nxt.length === 0){
+        nxt = jQuery(".single-quote").prevAll();
+       
+      }
+        jQuery(this).hide();
+      current = nxt.show();  
+   
+      
+}); //end on swipelift
   
-//Convert all form names and ids with periods to underscores
+jQuery( document ).on( "swiperight", ".single-quote", function() {
+        
+        
+     let prv = jQuery(this).prev();
+     
+        
+      if(prv.length === 0){
+        prv = jQuery(".single-quote").prevAll();
+        
+      }
+
+        jQuery(this).hide();
+        current = prv.show();
+      
+    
+        
+}); //end on swiperight
+
+jQuery( document ).on( "click", "#leftButton", function() {
+        
+        let nxt = current.next();
+      
+     
+      if(nxt.length === 0){
+        nxt = jQuery(".single-quote").prevAll();
+       
+      }
+        current.hide();
+      current = nxt.show();  
+   
+      
+}); //end on left busson clicked
+  
+jQuery( document ).on( "click", "#rightButton", function() {
+        
+        
+    let prv = current.prev();
+     
+        
+      if(prv.length === 0){
+        prv = jQuery(".single-quote").prevAll();
+        
+      }
+
+        current.hide();
+        current = prv.show();
+      
+    
+        
+}); //end on right button cicked
+
+function nextQuote(){
+
+}
+
+function prevQuote(){
+
+}
+
+//Note: Convert all form names and ids with periods to underscores
 
   //gravityformsapi/forms/[Form ID]/submissions
   jQuery(document).on('click','#gform_submit_button_1',function(e){
@@ -118,7 +196,8 @@ jQuery( document ).one( "pageshow", "#podcasts", function(){
                 "input_3": jQuery('#input_1_3').val(),
                 "input_5": jQuery('#input_3_5').val()
     };
-        //console.log(forminput);
+    
+    //console.log(forminput);
     let datar = {'input_values': forminput};
 
     let formResponse = sendQuestion(formurl, datar);
@@ -170,4 +249,3 @@ jQuery( document ).one( "pageshow", "#podcasts", function(){
 
 })();
 
-//TODO: Reset form after form submitted
