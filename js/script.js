@@ -108,7 +108,7 @@ jQuery( document ).on( "click", "#rightButton", function() {
   jQuery(document).on('click','#gform_submit_button_1',function(e){
   
     e.preventDefault();
-    let formurl = 'https://230.pintophosting.com/gravityformsapi/forms/3/submissions';
+    let formurl = 'https://2dwebsolutions.com/gravityformsapi/forms/1/submissions';
     let forminput = {
                 "input_4_1": jQuery('#choice_1_4_1:checked').val(),
                 "input_1_3": jQuery('#input_1_1_3').val(),
