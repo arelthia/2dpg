@@ -200,6 +200,7 @@ function showQuotes(res){
         return jQuery.ajax({
           url: formurl,
           type: 'POST',
+          dataType: 'json',
           data: JSON.stringify(datar)
         });
    } //end sendQuestion

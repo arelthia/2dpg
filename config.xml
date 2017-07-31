@@ -93,7 +93,7 @@
 	<plugin name="cordova-plugin-statusbar" spec="~2.1.2" source="npm"/>
 	<plugin name="cordova-plugin-whitelist" spec="~1.2.1" source="npm"/>
 
-      
+      <access origin="*" subdomains="true"/>
     <!-- Wildcards are allowed for the protocol, as a prefix
      to the host, or as a suffix to the path -->
 	<allow-intent href="*://*.2dwebsolutions.com/*" />
