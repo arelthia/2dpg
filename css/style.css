@@ -99,14 +99,15 @@ a h2 {
 
 
 #image-quotes img {
-  position: absolute;
-top: 10%;
-left: 0;
+ position: absolute;
+  top: 10%;
+  left: 0;
   max-width: 100%;
 
    margin: 0 auto;
 
 }
+
 
 @media only screen and (min-width: 600px) {
     /* For tablets: */
