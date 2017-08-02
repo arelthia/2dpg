@@ -108,7 +108,9 @@ jQuery( document ).on( "click", "#rightButton", function() {
   jQuery(document).on('click','#gform_submit_button_1',function(e){
   
     e.preventDefault();
+    //let formurl = 'https://230.pintophosting.com/gravityformsapi/forms/3/submissions';
     let formurl = 'https://2dwebsolutions.com/gravityformsapi/forms/1/submissions';
+   
     let forminput = {
                 "input_4_1": jQuery('#choice_1_4_1:checked').val(),
                 "input_1_3": jQuery('#input_1_1_3').val(),
@@ -122,7 +124,8 @@ jQuery( document ).on( "click", "#rightButton", function() {
     let datar = {'input_values': forminput};
 
     let formResponse = sendQuestion(formurl, datar);
-    formResponse.complete(function(data) {
+    formResponse.complete(function(data, textStatus, xhr) {
+        console.log(textStatus);
         jQuery('form')[0].reset();
         location.href = '#firstpage';
         
@@ -196,11 +199,10 @@ function showQuotes(res){
 //submit question
   function sendQuestion(formurl, datar){
         
-
+        
         return jQuery.ajax({
           url: formurl,
           type: 'POST',
-          dataType: 'json',
           data: JSON.stringify(datar)
         });
    } //end sendQuestion
