@@ -11,7 +11,7 @@
     <author href="https://pintopsolutions.com" email="support@pintopsolutions.com ">
              Pintop Solutions 
     </author>
-    <!-- <platform name="ios"/> -->
+    <platform name="ios"/>
     <platform name="android"/>
     <!-- <platform name="winphone"/> -->
 
