@@ -3,7 +3,7 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "com.pintop.ddwebsolutions "
     versionCode = "1" 
-    version     = "1.0.0" >
+    version     = "1.0.1" >
 	<name>2D Web Solutions</name>
     <description>
             This application is for designers and developers. We are Arelthia Phillips, founder of Pintop Solutions, LLC and Kerry Carron, founder of Ultimate Solution, LLC. Together we are 2D Web Solutions - Aspects of Design And Development. You ask questions, we find solutions. 
