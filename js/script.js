@@ -144,7 +144,7 @@ jQuery( document ).on( "click", "#rightButton", function() {
          
           fimg = value._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url;
           podcontent = '<img src="' + fimg + '" data-pin-nopin="true" /><h2 class="episode-title wrap">' + value.title.rendered + '</h2>';
-          jQuery("#podcasts ul").append('<a href="#" class="post-btn"><li class="one-half " data-id="'+value.id+'" data-episode="'+value.eposide+'" data-transition="slide">' +podcontent + '</li></a>');    
+          jQuery("#podcasts ul").append('<a href="#" class="post-btn"><li class="one-half " data-id="'+value.id+'" data-episode="'+value.eposide+'" >' +podcontent + '</li></a>');    
         
       })
   }  
@@ -172,7 +172,7 @@ function showQuotes(res){
     //let qimg = '';
     //let quotecontent = '';
     jQuery.each(res, function(key, value) {
-        jQuery("#image-quotes").append('<div class="single-quote"  data-transition="flip"  style="display:none"><img src="' + value._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '" alt="' + value._embedded['wp:featuredmedia'][0].alt_text + '" ></div>');
+        jQuery("#image-quotes").append('<div class="single-quote"  style="display:none"><img src="' + value._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '" alt="' + value._embedded['wp:featuredmedia'][0].alt_text + '" ></div>');
     });
     
     jQuery(".single-quote:first").show();
