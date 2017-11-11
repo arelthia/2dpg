@@ -108,7 +108,6 @@ jQuery( document ).on( "click", "#rightButton", function() {
   jQuery(document).on('click','#gform_submit_button_1',function(e){
   
     e.preventDefault();
-    //let formurl = 'https://230.pintophosting.com/gravityformsapi/forms/3/submissions';
     let formurl = 'https://2dwebsolutions.com/gravityformsapi/forms/1/submissions';
    
     let forminput = {
@@ -120,12 +119,11 @@ jQuery( document ).on( "click", "#rightButton", function() {
                 "input_5": jQuery('#input_3_5').val()
     };
     
-    //console.log(forminput);
+
     let datar = {'input_values': forminput};
 
     let formResponse = sendQuestion(formurl, datar);
     formResponse.complete(function(data, textStatus, xhr) {
-        console.log(textStatus);
         jQuery('form')[0].reset();
         location.href = '#firstpage';
         
@@ -169,8 +167,7 @@ jQuery( document ).on( "click", "#rightButton", function() {
 
 
 function showQuotes(res){
-    //let qimg = '';
-    //let quotecontent = '';
+
     jQuery.each(res, function(key, value) {
         jQuery("#image-quotes").append('<div class="single-quote"  style="display:none"><img src="' + value._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url + '" alt="' + value._embedded['wp:featuredmedia'][0].alt_text + '" ></div>');
     });
